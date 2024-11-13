@@ -1,13 +1,13 @@
 import heapq
 
 class PuzzleState:
-    def _init_(self, board, moves=0, previous=None):
+    def __init__(self, board, moves=0, previous=None):
         self.board = board
         self.moves = moves
         self.previous = previous
         self.zero_pos = board.index(0)
 
-    def _lt_(self, other):
+    def __lt__(self, other):
         return (self.moves + self.manhattan_distance()) < (other.moves + other.manhattan_distance())
 
     def manhattan_distance(self):
@@ -72,7 +72,7 @@ def print_board(board):
         print(board[i:i+3])
     print()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     initial = list(map(int, input("Enter the initial state (9 numbers 0-8): ").split()))
     goal = list(map(int, input("Enter the goal state (9 numbers 0-8): ").split()))
     
